@@ -1,0 +1,6 @@
+Question: Find the 3rd to 7th highest patient satisfaction scores from the patients table, showing patient_id, name, service, and satisfaction. Display only these 5 records.
+
+SELECT patient_id, name, service, satistifaction 
+FROM patients
+ORDER BY satistifaction DESC
+LIMIT 5 OFFSET 2;
