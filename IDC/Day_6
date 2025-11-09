@@ -1,0 +1,10 @@
+Question: For each hospital service, calculate the total number of patients admitted, total patients refused, and the admission rate (percentage of requests that were admitted).
+Order by admission rate descending.
+
+select service, 
+count(patients_admitted) as total_patients_admitted, 
+count(patients_refused) as total_patients_refused,
+Round(sum(patients_admitted) / nullif(sum(patients_request),0) * 100 ,2) as `admission_rate_%`
+from services_weekly
+group by service
+order by `admission_rate_%` desc;
